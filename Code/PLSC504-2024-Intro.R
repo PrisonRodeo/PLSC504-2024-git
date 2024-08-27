@@ -1,9 +1,9 @@
-####################################################
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # PLSC 504 -- Fall 2024: Code for Intro / Review
 # of likelihood and optimization... 
-####################################################
-# Load packages (run this a few times to make sure
-# things take...):
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Load packages, etc.                           ####
+# (run this a few times to make sure things take...):
 
 P<-c("readr","maxLik","distr")
 
@@ -21,14 +21,14 @@ options(digits = 3) # show fewer decimal places
 
 # Set a working directory in here, probably, [shrug]
 
-###################################
-# Toy example (for slide figures):
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Toy / salary example (for slide figures)        ####
 
-data<-c(64,63,59,71,68) # Data
-Lis<-dnorm(data,mean=68,sd=4) # Likelihoods for m=68,s=4
-L68.4<-prod(Lis) # The likelihood (joint product) for m=68,s=4
+data<-c(74,73,69,81,78) # Data
+Lis<-dnorm(data,mean=78,sd=4) # Likelihoods for m=78,s=4
+L78.4<-prod(Lis) # The likelihood (joint product) for m=78,s=4
 
-Mus<-seq(62,68,by=0.1) # possible values of mu [62,68]
+Mus<-seq(72,78,by=0.1) # possible values of mu [72,78]
 L<-numeric(length(Mus)) # a place to put the likelihoods
 
 # Calculate likelihoods for different values of mu:
@@ -39,7 +39,8 @@ for (i in 1:length(Mus)) {
 
 # Plot:
 
-pdf("SalaryLR.pdf",5,4)
+pdf("SalaryLR-24.pdf",5,4)
+par(mar=c(4,4,2,2))
 plot(Mus,L,t="l",lwd=2,xlab=expression(hat(mu)),
      ylab="Likelihood")
 dev.off()
@@ -52,13 +53,14 @@ for (i in 1:length(Mus)) {
   lnL[i]<-sum(log(dnorm(data,mean=Mus[i],sd=4)))
 }
 
-pdf("SalarylnLR.pdf",5,4)
+pdf("SalarylnLR-24.pdf",5,4)
+par(mar=c(4,4,2,2))
 plot(Mus,lnL,t="l",lwd=2,xlab=expression(hat(mu)),
      ylab="Log-Likelihood")
 dev.off()
 
-##################################
-# Optimization, etc.
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Optimization, etc.                            ####
 #
 # # Rayleigh density plot, b = {1,2,3}
 
