@@ -1,4 +1,4 @@
-grades,sports,fincome,ses,workage,hmwktime,female,academic,remedial,advanced
+Grades,Sports,FamIncome,SES,WorkAge,HmwkTime,Female,Academic,Remedial,Advanced
 3,0,2,2,14,6,0,1,1,0
 3.5,0,2,1,14,4,1,0,0,0
 2.5,0,2,1,16,6,0,0,1,1
